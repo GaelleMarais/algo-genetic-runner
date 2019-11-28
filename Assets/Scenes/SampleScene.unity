@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7777664830b18ee40850bb4c63e54303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 50
+  size: 500
   pieces:
   - {fileID: 1856471184301128768, guid: 6cc9e225d4a7ecf43818ef80addc893b, type: 3}
   - {fileID: 4100302015521379232, guid: 0072709c5cc1ae74fbef59473f2463b4, type: 3}
@@ -1330,4 +1330,4 @@ MonoBehaviour:
   ui: {fileID: 872649336}
   bestNum: 20
   numberPlayer: 200
-  mutation: 0.005
+  mutation: 0.001

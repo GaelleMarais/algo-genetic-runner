@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
 
-        Ray checkLeft = new Ray(transform.position + new Vector3(0, 0, 0), new Vector3(0, 0, -1));
-        Ray checkRight = new Ray(transform.position + new Vector3(0, 0, 0), new Vector3(0, 0, 1));
+        Ray checkLeft = new Ray(transform.position + new Vector3(0.6f, 0, 0), new Vector3(0, 0, -1));
+        Ray checkRight = new Ray(transform.position + new Vector3(0.6f, 0, 0), new Vector3(0, 0, 1));
 
         if (Physics.Raycast(checkLeft, out hit, 1.0f, collisionMask))
         {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Ray rayLeft = new Ray(transform.position + new Vector3(0, 0, -1), new Vector3(-1, 0, 0));
+            Ray rayLeft = new Ray(transform.position + new Vector3(0.6f, 0, -1), new Vector3(-1, 0, 0));
 
             if (Physics.Raycast(rayLeft, out hit, viewDistance, collisionMask))
             {
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(rayLeft.origin, rayLeft.direction);
         }
 
-        Ray rayMiddle = new Ray(transform.position + new Vector3(0, 0, 0), new Vector3(-1, 0, 0));
+        Ray rayMiddle = new Ray(transform.position + new Vector3(0.6f, 0, 0), new Vector3(-1, 0, 0));
 
         if (Physics.Raycast(rayMiddle, out hit, viewDistance, collisionMask))
         {
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Ray rayRight = new Ray(transform.position + new Vector3(0, 0, 1), new Vector3(-1, 0, 0));
+            Ray rayRight = new Ray(transform.position + new Vector3(0.6f, 0, 1), new Vector3(-1, 0, 0));
 
             if (Physics.Raycast(rayRight, out hit, viewDistance, collisionMask))
             {
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         while(alive)
         {
             ChooseMove();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
