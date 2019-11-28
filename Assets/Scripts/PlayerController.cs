@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public NeuralNetwork network;
 
+    public float movePenality = 0.2f;
+
     public void ChooseMove()
     {
         if (alive)
@@ -40,11 +42,13 @@ public class PlayerController : MonoBehaviour
 
     void MoveLeft()
     {
+        score -= movePenality;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 1);
     }
 
     void MoveRight()
     {
+        score -= movePenality;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1);
     }
 
