@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public bool alive = true;
 
+    public float viewDistance = 50.0f;
+
     public NeuralNetwork network;
 
     public void ChooseMove()
@@ -71,13 +73,13 @@ public class PlayerController : MonoBehaviour
         {
             Ray rayLeft = new Ray(transform.position + new Vector3(0, 0, -1), new Vector3(-1, 0, 0));
 
-            if (Physics.Raycast(rayLeft, out hit, 20.0f, collisionMask))
+            if (Physics.Raycast(rayLeft, out hit, viewDistance, collisionMask))
             {
                 distances[0] = hit.distance;
             }
             else
             {
-                distances[0] = 20.0f;
+                distances[0] = viewDistance;
             }
 
             Debug.DrawRay(rayLeft.origin, rayLeft.direction);
@@ -85,13 +87,13 @@ public class PlayerController : MonoBehaviour
 
         Ray rayMiddle = new Ray(transform.position + new Vector3(0, 0, 0), new Vector3(-1, 0, 0));
 
-        if (Physics.Raycast(rayMiddle, out hit, 20.0f, collisionMask))
+        if (Physics.Raycast(rayMiddle, out hit, viewDistance, collisionMask))
         {
             distances[1] = hit.distance;
         }
         else
         {
-            distances[1] = 20.0f;
+            distances[1] = viewDistance;
         }
 
         Debug.DrawRay(rayMiddle.origin, rayMiddle.direction);
@@ -104,20 +106,23 @@ public class PlayerController : MonoBehaviour
         {
             Ray rayRight = new Ray(transform.position + new Vector3(0, 0, 1), new Vector3(-1, 0, 0));
 
-            if (Physics.Raycast(rayRight, out hit, 20.0f, collisionMask))
+            if (Physics.Raycast(rayRight, out hit, viewDistance, collisionMask))
             {
                 distances[2] = hit.distance;
             }
             else
             {
-                distances[2] = 20.0f;
+                distances[2] = viewDistance;
             }
 
             Debug.DrawRay(rayRight.origin, rayRight.direction);
         }
 
-        //  for (int i = 0; i < 3; i++)
-        //      Debug.Log("distance " + i + " = " + distances[i]);
+        // distances[0] /= viewDistance;
+        // distances[1] /= viewDistance;
+        // distances[2] /= viewDistance;
+
+
     }
 
     private void ComputeScore()
@@ -136,7 +141,7 @@ public class PlayerController : MonoBehaviour
         while(alive)
         {
             ChooseMove();
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

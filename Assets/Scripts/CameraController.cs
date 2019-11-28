@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 20;
 
     void Update()
     {

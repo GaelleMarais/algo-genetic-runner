@@ -32,7 +32,7 @@ public class NeuralNetwork
     }
 
 
-    public static NeuralNetwork Fuse(NeuralNetwork net1, NeuralNetwork net2)
+    public static NeuralNetwork Fuse(NeuralNetwork net1, NeuralNetwork net2, float mutation)
     {
         NeuralNetwork child = new NeuralNetwork(net1.numInput, net1.numHidden, net1.numOutput);
 
@@ -45,6 +45,11 @@ public class NeuralNetwork
                         child.weightList[i][j, k] = net1.weightList[i][j, k];
                     else
                         child.weightList[i][j, k] = net2.weightList[i][j, k];
+
+                    if(Random.Range(0.0f,1.0f) < mutation)
+                    {
+                        child.weightList[i][j, k] += Random.Range(-0.1f, 0.1f);
+                    }
                 }
          return child;
     }

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
    
     public int numberPlayer;
 
+    public float mutation = 0.05f;
+
     public void NewGeneration()
     {
         gen++;
@@ -23,6 +25,12 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < numberPlayer; i++)
             {
                 PlayerController player = Instantiate(playerPrefab, new Vector3(4, 1, 0), Quaternion.identity, transform).GetComponent<PlayerController>();
+
+                //randomize some value to the see the different cube
+                player.transform.position += new Vector3(Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f));
+                player.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+
+                //create the network
                 player.network = new NeuralNetwork(3, 10, 1);
                 player.network.InitializeRandomWeight();
                 playerList.Add(player);
@@ -41,6 +49,11 @@ public class GameManager : MonoBehaviour
             foreach(PlayerController parent in playerList)
             {
                 PlayerController player = Instantiate(playerPrefab, new Vector3(4, 1, 0), Quaternion.identity, transform).GetComponent<PlayerController>();
+                //randomize some value to the see the different cube
+                player.transform.position += new Vector3(Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f));
+                player.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+
+                //create the network
                 player.network = parent.network;
                 newGen.Add(player);
                 Destroy(parent.gameObject);
@@ -63,7 +76,12 @@ public class GameManager : MonoBehaviour
                 parent2 = parents[Random.Range(0, numParents)];
 
             PlayerController child = Instantiate(playerPrefab, new Vector3(4, 1, 0), Quaternion.identity, transform).GetComponent<PlayerController>();
-            child.network = NeuralNetwork.Fuse(parent1.network, parent2.network);
+            //randomize some value to the see the different cube
+            child.transform.position += new Vector3(Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f), Random.Range(-0.249f, 0.25f));
+            child.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+
+            //create the net work
+            child.network = NeuralNetwork.Fuse(parent1.network, parent2.network,mutation);
             childs.Add(child);
         }
         return childs;
