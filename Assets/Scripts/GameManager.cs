@@ -100,6 +100,9 @@ public class GameManager : MonoBehaviour
     {
         if (AllDead())
         {
+            MapGenerator mapGenerator = GameObject.Find("Map").GetComponent<MapGenerator>();
+            mapGenerator.Clear();
+            mapGenerator.Create();
             NewGeneration();
             StartGameLoop();
             Camera.main.transform.position = new Vector3(7.44f, 6, 0);

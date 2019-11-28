@@ -14,13 +14,13 @@ public class MapGenerator : MonoBehaviour
         Create();
     }
 
-    void Clear(){
+    public void Clear(){
         foreach (Transform child in transform) {
             GameObject.Destroy(child.gameObject);
         }
     }
 
-    void Create(){
+    public void Create(){
         for(int i = 0; i < size; i++){
             int rand = Random.Range(0, pieces.Length - 1);
 
