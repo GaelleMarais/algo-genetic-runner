@@ -21,6 +21,34 @@ public class NeuralNetwork
         weightList.Add(new float[numHidden + 1, numOutput]);
     }
 
+    public void InitializeRandomWeight()
+    {
+        for(int i = 0; i < weightList.Count ; i++)
+            for(int j = 0; j < weightList[i].GetLength(0); j++)
+                for(int k = 0; k < weightList[i].GetLength(1); k++)
+                {
+                    weightList[i][j, k] = Random.Range(-1.0f, 1.0f);
+                }
+    }
+
+
+    public static NeuralNetwork Fuse(NeuralNetwork net1, NeuralNetwork net2)
+    {
+        NeuralNetwork child = new NeuralNetwork(net1.numInput, net1.numHidden, net1.numOutput);
+
+        for (int i = 0; i < child.weightList.Count; i++)
+            for (int j = 0; j < child.weightList[i].GetLength(0); j++)
+                for (int k = 0; k < child.weightList[i].GetLength(1); k++)
+                {
+                    int choice = Random.Range(0, 2);
+                    if (choice == 0)
+                        child.weightList[i][j, k] = net1.weightList[i][j, k];
+                    else
+                        child.weightList[i][j, k] = net2.weightList[i][j, k];
+                }
+         return child;
+    }
+
     public float[] Compute(float[] inputs)
     {
         float[] hidden = new float[numHidden];
