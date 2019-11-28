@@ -224,19 +224,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7777664830b18ee40850bb4c63e54303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPiece: 50
-  obstacleFrequence: 8
-  piece000: {fileID: 4271971741776393715, guid: 04c96dc97d3e4324ba13f536d6b03ce0,
-    type: 3}
-  piece001: {fileID: 1856471184301128768, guid: 6cc9e225d4a7ecf43818ef80addc893b,
-    type: 3}
-  piece010: {fileID: 4100302015521379232, guid: 0072709c5cc1ae74fbef59473f2463b4,
-    type: 3}
-  piece011: {fileID: 4511016256965620892, guid: 5517c9acb3510e344a81543b02816515,
-    type: 3}
-  piece100: {fileID: 42441987933955499, guid: 46298a715535d354aa7504c4ffcdb27f, type: 3}
-  piece101: {fileID: 683326585496119458, guid: f51d56f7598b9694cb7af3d8e8e84980, type: 3}
-  piece110: {fileID: 195580352487201100, guid: bff3661be22501e459c5fc4bbf9d3b4a, type: 3}
+  size: 50
+  pieces:
+  - {fileID: 195580352487201100, guid: bff3661be22501e459c5fc4bbf9d3b4a, type: 3}
+  - {fileID: 1856471184301128768, guid: 6cc9e225d4a7ecf43818ef80addc893b, type: 3}
+  - {fileID: 4100302015521379232, guid: 0072709c5cc1ae74fbef59473f2463b4, type: 3}
+  - {fileID: 4511016256965620892, guid: 5517c9acb3510e344a81543b02816515, type: 3}
+  - {fileID: 42441987933955499, guid: 46298a715535d354aa7504c4ffcdb27f, type: 3}
+  - {fileID: 683326585496119458, guid: f51d56f7598b9694cb7af3d8e8e84980, type: 3}
+  - {fileID: 4271971741776393715, guid: 04c96dc97d3e4324ba13f536d6b03ce0, type: 3}
+  - {fileID: 4271971741776393715, guid: 04c96dc97d3e4324ba13f536d6b03ce0, type: 3}
+  - {fileID: 4271971741776393715, guid: 04c96dc97d3e4324ba13f536d6b03ce0, type: 3}
 --- !u!1 &1531198189
 GameObject:
   m_ObjectHideFlags: 0
