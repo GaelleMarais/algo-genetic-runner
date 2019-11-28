@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         if (alive)
         {
+            UpdateDistances();
             float[] decision = network.Compute(distances);
 
             if (decision[0] < 0.333f)
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour
         if (alive)
         {
             transform.position += new Vector3(-1, 0, 0) * speed * Time.deltaTime;
-            UpdateDistances();
             ComputeScore();
         }
     }
@@ -120,7 +120,10 @@ public class PlayerController : MonoBehaviour
 
         // distances[0] /= viewDistance;
         // distances[1] /= viewDistance;
-        // distances[2] /= viewDistance;
+        // distances[2] /= viewDistance; 
+        distances[0] = (float) System.Math.Round(distances[0], 2);
+        distances[1] = (float) System.Math.Round(distances[1], 2);
+        distances[2] = (float) System.Math.Round(distances[2], 2);
 
 
     }

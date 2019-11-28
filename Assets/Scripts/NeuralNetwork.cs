@@ -27,7 +27,7 @@ public class NeuralNetwork
             for(int j = 0; j < weightList[i].GetLength(0); j++)
                 for(int k = 0; k < weightList[i].GetLength(1); k++)
                 {
-                    weightList[i][j, k] = Random.Range(-1.0f, 1.0f);
+                    weightList[i][j, k] = Random.Range(-4.0f, 4.0f);
                 }
     }
 
@@ -48,7 +48,7 @@ public class NeuralNetwork
 
                     if(Random.Range(0.0f,1.0f) < mutation)
                     {
-                        child.weightList[i][j, k] += Random.Range(-0.1f, 0.1f);
+                        child.weightList[i][j, k] = Random.Range(-4f, 4f);
                     }
                 }
          return child;
