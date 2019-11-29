@@ -7,6 +7,7 @@ public class MapGenerator : MonoBehaviour
 
     public int size;
     public GameObject[] pieces;
+    public GameObject endPiece;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +28,8 @@ public class MapGenerator : MonoBehaviour
             var newPiece = Instantiate(pieces[rand], new Vector3(-i * 4, 0, 0), Quaternion.identity);
             newPiece.transform.parent = gameObject.transform;                   
         }
+        var lastPiece = Instantiate(endPiece, new Vector3(-size * 4, 0, 0), Quaternion.identity);
+        lastPiece.transform.parent = gameObject.transform;
+
     }
 }
