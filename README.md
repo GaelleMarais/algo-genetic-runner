@@ -7,7 +7,6 @@ Implementation of a genetic algorithm on a temple run like.
 100 cubes are generated for each generation. The goal of each cube is to survive until the end, wich means avoid all obstacles.
 
 Each cube is aware of the line in front of him, the line to his right and the line to his left. 
-
 At the end of a generation we select the best cubes to create the next generation. 
 
 ### Results
